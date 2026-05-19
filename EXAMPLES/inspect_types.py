@@ -14,7 +14,7 @@ things = (
 )
 
 def get_instance_type_name(obj):
-    return f"{type(thing).__name__} instance" 
+    return f"{type(obj).__name__} instance" 
 
 print("Name               Module?  Function?  Class?  Method?")
 for thing in things:

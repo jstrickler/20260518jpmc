@@ -14,7 +14,7 @@ class PlayingCard:
         else:
             raise TypeError("rank must be a str")
         
-    @property
+    @property # DECORATOR
     def suit(self):
         return self._suit
     
