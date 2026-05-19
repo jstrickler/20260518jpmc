@@ -1,7 +1,6 @@
 from pprint import pprint
 import requests
-
-BASE_URL = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/data'
+BASE_URL = 'https://www.ncei.noaa.gov/cdo-web/api/v2/datasets'
 TOKEN = 'RZvAuJvzafAimtwbJFmORyXQbOpEoVId'
 
 session = requests.Session()
@@ -12,16 +11,16 @@ session.headers.update(
         'Accept': "application/GeoJSON"
     }
 )
-
 response = session.get(
     BASE_URL,
     params={
-        'datasetid': 'PRECIP_HLY',
-        'stationid': 'COOP:010957',
-        'startdate': '1970-01-01',
-        'enddate': '1970-12-31',
+        'datasetid': 'GSOM',
     },
     timeout=10,
-)
 
-pprint(response.json())
+)
+if response.ok:
+    pprint(response.json())
+else:
+    print(response.text)
+    print(response.status_code)

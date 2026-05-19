@@ -11,7 +11,10 @@ with sqlite3.connect("../DATA/presidents.db") as conn:  # connect to the databas
         from presidents
     ''')  # execute a SQL statement
 
-    for term, firstname, lastname, party in s3_cursor.fetchall():
+    # cursor.fetchone()
+    # cursor.fetchmany(100)
+
+    for term, firstname, lastname, party in s3_cursor:
         print(f"{term:2d} {firstname:25} {lastname:20} {party}")
     print()
 

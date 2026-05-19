@@ -1,10 +1,11 @@
+from getpass import getpass
 import psycopg
 
 pg_conn = psycopg.connect(
     host="localhost",
     dbname="postgres",
     user="postgres",
-    password='scripts',
+    password=getpass("enter PG password"),
 )
 pg_cursor = pg_conn.cursor()
 
